@@ -223,7 +223,6 @@ resource "time_sleep" "forces_wait_propagation" {
 
   depends_on = [
     module.data_ingestion,
-    module.org_policies,
     module.data_governance,
     module.bigquery_confidential_data
   ]

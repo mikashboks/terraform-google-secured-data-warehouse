@@ -89,17 +89,3 @@ module "bigquery_confidential_data" {
   terraform_service_account             = var.terraform_service_account
   delete_contents_on_destroy            = var.delete_contents_on_destroy
 }
-
-module "org_policies" {
-  source   = "./modules/org-policies"
-  for_each = local.projects_ids
-
-  project_id          = each.value
-  trusted_locations   = var.trusted_locations
-  trusted_subnetworks = var.trusted_subnetworks
-
-  depends_on = [
-    module.data_ingestion,
-    module.bigquery_confidential_data
-  ]
-}

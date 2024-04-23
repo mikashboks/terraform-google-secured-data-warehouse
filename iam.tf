@@ -142,27 +142,3 @@ resource "google_project_iam_member" "data-analyst-group-confidential" {
   role    = each.value
   member  = "group:${var.data_analyst_group}"
 }
-
-resource "google_organization_iam_member" "security-analyst-group" {
-  for_each = toset(local.security_analyst_group_org_roles)
-
-  org_id = var.org_id
-  role   = each.value
-  member = "group:${var.security_analyst_group}"
-}
-
-resource "google_organization_iam_member" "network-administrator-group" {
-  for_each = toset(local.network_administrator_group_org_roles)
-
-  org_id = var.org_id
-  role   = each.value
-  member = "group:${var.network_administrator_group}"
-}
-
-resource "google_organization_iam_member" "security-administrator-group" {
-  for_each = toset(local.security_administrator_group_org_roles)
-
-  org_id = var.org_id
-  role   = each.value
-  member = "group:${var.security_administrator_group}"
-}

@@ -16,7 +16,7 @@
 
 
 locals {
-  template_id        = "${var.template_id_prefix}_${random_id.random_template_id_suffix.hex}"
+  template_id        = "${var.template_id_prefix}_${var.random_template_id_suffix}"
   template_full_path = "projects/${var.project_id}/locations/${var.dlp_location}/deidentifyTemplates/${local.template_id}"
 
   template_file_sha256 = filesha256(var.template_file)
@@ -33,7 +33,7 @@ locals {
   )
 }
 
-resource "random_id" "random_template_id_suffix" {
+/* resource "random_id" "random_template_id_suffix" {
   byte_length = 8
 
   keepers = {
@@ -41,7 +41,7 @@ resource "random_id" "random_template_id_suffix" {
     wrapped_key     = var.wrapped_key,
     template_sha256 = local.template_file_sha256
   }
-}
+} */
 
 resource "google_kms_crypto_key_iam_member" "dlp_decrypters" {
   role          = "roles/cloudkms.cryptoKeyDecrypter"

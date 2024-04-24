@@ -67,3 +67,9 @@ variable "dataflow_service_account" {
   description = "The Service Account email that will be used to identify the VMs in which the jobs are running."
   type        = string
 }
+
+variable "random_template_id_suffix" {
+  description = "A random suffix to be used in the creation of the ID of the DLP de-identification template."
+  type        = string
+  
+}

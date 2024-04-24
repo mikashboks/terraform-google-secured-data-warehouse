@@ -58,8 +58,8 @@ resource "google_kms_crypto_key_iam_member" "dlp_encrypters" {
 resource "null_resource" "de_identify_template" {
 
   triggers = {
-  //  template                  = local.de_identification_template,
-    template_hash             = sha256(local.de_identification_template)
+ #   template                  = local.de_identification_template,
+    deidentified_fields       = var.deidentified_fields
     project_id                = var.project_id,
     template_id               = local.template_id
     dlp_location              = var.dlp_location

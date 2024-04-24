@@ -73,3 +73,9 @@ variable "random_template_id_suffix" {
   type        = string
   
 }
+
+variable "deidentified_fields" {
+  description = "Provide list of fields / columns need to get de-identified."
+  type        = list(string)
+  # default     = ["email", "dl_id"]
+}

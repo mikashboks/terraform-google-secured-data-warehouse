@@ -59,7 +59,7 @@ resource "null_resource" "de_identify_template" {
 
   triggers = {
  #   template                  = local.de_identification_template,
-    deidentified_fields       = var.deidentified_fields
+    deidentified_fields_trigger    = var.deidentified_fields_trigger
     project_id                = var.project_id,
     template_id               = local.template_id
     dlp_location              = var.dlp_location

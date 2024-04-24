@@ -74,8 +74,7 @@ variable "random_template_id_suffix" {
   
 }
 
-variable "deidentified_fields" {
-  description = "Provide list of fields / columns need to get de-identified."
-  type        = list(string)
-  # default     = ["email", "dl_id"]
+variable "deidentified_fields_trigger" {
+  description = "A trigger to force the recreation of the DLP de-identification template when the fields change."
+  type        = string
 }

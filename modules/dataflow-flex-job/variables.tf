@@ -68,12 +68,6 @@ variable "max_workers" {
   default     = 1
 }
 
-variable "worker_machine_type" {
-  description = "The type of machine to use for the worker nodes."
-  type        = string
-  default     = "n1-standard-1"
-}
-
 variable "on_delete" {
   description = "One of drain or cancel. Specifies behavior of deletion during terraform destroy. The default is cancel. See https://cloud.google.com/dataflow/docs/guides/stopping-a-pipeline ."
   type        = string

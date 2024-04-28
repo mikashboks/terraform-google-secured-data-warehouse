@@ -24,7 +24,6 @@ locals {
     maxNumWorkers         = var.max_workers
     usePublicIps          = var.use_public_ips
     enableStreamingEngine = var.enable_streaming_engine
-    workerMachineType     = var.worker_machine_type
   }
 
   python_pipeline_options = {
@@ -36,7 +35,6 @@ locals {
     max_num_workers         = var.max_workers
     no_use_public_ips       = !var.use_public_ips
     enable_streaming_engine = var.enable_streaming_engine
-    worker_machine_type     = var.worker_machine_type
   }
 
   pipeline_options = var.job_language == "JAVA" ? local.java_pipeline_options : local.python_pipeline_options

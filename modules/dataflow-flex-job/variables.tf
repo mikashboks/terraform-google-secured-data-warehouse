@@ -111,3 +111,15 @@ variable "additional_experiments" {
   type        = string
   default     = ""
 }
+
+variable "launcher_machine_type" {
+  description = "The machine type to use for the launcher VM."
+  type        = string
+  default     = "n1-standard-1"
+}
+
+variable "machine_type" {
+  description = "The machine type to use for the worker VMs."
+  type        = string
+  default     = "n1-standard-1"
+}

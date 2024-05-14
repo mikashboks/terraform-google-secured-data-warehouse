@@ -34,6 +34,7 @@ locals {
   data_ingestion_vpc_sc_resources = {
     data_ingestion   = data.google_project.data_ingestion_project.number
     non_confidential = data.google_project.non_confidential_data_project.number
+    confidential = data.google_project.confidential_project.number
   }
 
   data_governance_vpc_sc_resources = {

@@ -54,8 +54,8 @@ resource "google_dataflow_flex_template_job" "dataflow_flex_template_job" {
   container_spec_gcs_path = var.container_spec_gcs_path
   region                  = var.region
   on_delete               = var.on_delete
-  launcher_machine_type        = var.launcher_machine_type
-  machine_type                 = var.machine_type
+  launcher_machine_type   = var.launcher_machine_type
+  machine_type            = var.machine_type
 
   parameters = merge(var.parameters, local.pipeline_options, local.experiments)
 }

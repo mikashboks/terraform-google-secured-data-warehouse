@@ -123,3 +123,10 @@ variable "machine_type" {
   type        = string
   default     = "n1-standard-1"
 }
+
+variable "skip_wait_on_job_termination" {
+  description = "If true, Terraform will not wait for the job to finish before continuing."
+  type        = bool
+  default     = false
+  
+}

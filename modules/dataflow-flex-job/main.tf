@@ -56,6 +56,7 @@ resource "google_dataflow_flex_template_job" "dataflow_flex_template_job" {
   on_delete               = var.on_delete
   launcher_machine_type   = var.launcher_machine_type
   machine_type            = var.machine_type
+  skip_wait_on_job_termination = var.skip_wait_on_job_termination
 
   parameters = merge(var.parameters, local.pipeline_options, local.experiments)
 }

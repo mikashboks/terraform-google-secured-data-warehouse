@@ -110,20 +110,8 @@ variable "access_level_regions" {
 variable "egress_policies" {
   description = "A list of all [egress policies](https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#egress-rules-reference), each list object has a `from` and `to` value that describes egress_from and egress_to. See also [secure data exchange](https://cloud.google.com/vpc-service-controls/docs/secure-data-exchange#allow_access_to_a_google_cloud_resource_outside_the_perimeter)."
   type = list(object({
-    from = object({
-      identity_type = string
-      identities    = optional(list(string))
-      sources = object({
-        access_level = optional(list(string))
-        resource     = optional(list(string))
-      })
-    })
-    to = object({
-      resources = list(string)
-      operations = map(object({
-        methods = list(string)
-      }))
-    })
+    from = any
+    to   = any
   }))
   default = []
 }

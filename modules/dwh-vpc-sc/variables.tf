@@ -123,8 +123,8 @@ variable "ingress_policies" {
       identity_type = string
       identities    = optional(list(string))
       sources = object({
-        access_level = optional(list(string))
-        resource     = optional(list(string))
+        access_levels = optional(list(string))
+        resources     = optional(list(string))
       })
     })
     to = object({

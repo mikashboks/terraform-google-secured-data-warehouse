@@ -118,25 +118,21 @@ variable "egress_policies" {
 
 variable "ingress_policies" {
   description = "A list of all [ingress policies](https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#ingress-rules-reference), each list object has a `from` and `to` value that describes ingress_from and ingress_to.\n\nExample: `[{ from={ sources={ resources=[], access_levels=[] }, identities=[], identity_type=\"ID_TYPE\" }, to={ resources=[], operations={ \"SRV_NAME\"={ OP_TYPE=[] }}}}]`\n\nValid Values:\n`ID_TYPE` = `null` or `IDENTITY_TYPE_UNSPECIFIED` (only allow indentities from list); `ANY_IDENTITY`; `ANY_USER_ACCOUNT`; `ANY_SERVICE_ACCOUNT`\n`SRV_NAME` = \"`*`\" (allow all services) or [Specific Services](https://cloud.google.com/vpc-service-controls/docs/supported-products#supported_products)\n`OP_TYPE` = [methods](https://cloud.google.com/vpc-service-controls/docs/supported-method-restrictions) or [permissions](https://cloud.google.com/vpc-service-controls/docs/supported-method-restrictions)."
-  # type = list(object({
-  #   from = object({
-  #     identity_type = string
-  #     identities    = optional(list(string))
-  #     sources = object({
-  #       access_level = optional(list(string))
-  #       resource     = optional(list(string))
-  #     })
-  #   })
-  #   to = object({
-  #     resources = list(string)
-  #     operations = map(object({
-  #       methods = list(string)
-  #     }))
-  #   })
-  # }))
   type = list(object({
-    from = any
-    to   = any
+    from = object({
+      identity_type = string
+      identities    = optional(list(string))
+      sources = object({
+        access_level = optional(list(string))
+        resource     = optional(list(string))
+      })
+    })
+    to = object({
+      resources = list(string)
+      operations = map(object({
+        methods = list(string)
+      }))
+    })
   }))
   default = []
 }
